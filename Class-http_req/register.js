@@ -44,7 +44,7 @@ function getData(event) {
     alert("Passwords do not match.");
     return;
   }
-  
+
   signUp(name, email, password);
   alert({
     name: name,
@@ -62,13 +62,17 @@ function signUp(name, email, password) {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:3000/signup");
   xhr.setRequestHeader("Content-Type", "application/json");
+
   xhr.onload = function () {
-    alert("Response:", JSON.parse(xhr.responseText));
+    console.log("Server Response:", xhr.responseText);
   };
+
   const body = {
     fullname: name,
     email: email,
     password: password,
   };
+
   xhr.send(JSON.stringify(body));
 }
+
