@@ -44,6 +44,7 @@ function getData(event) {
     alert("Passwords do not match.");
     return;
   }
+  
   signUp(name, email, password);
   alert({
     name: name,
